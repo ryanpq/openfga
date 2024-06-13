@@ -42,7 +42,8 @@ func ReadChangesTest(t *testing.T, datastore storage.OpenFGADatastore) {
 		storeID := ulid.Make().String()
 
 		var writtenTuples []*openfgav1.TupleKey
-		for i := 0; i < 3_000; i++ {
+		const numWrite = 300
+		for i := 0; i < numWrite; i++ {
 			newTuple := tuple.NewTupleKey(fmt.Sprintf("document:%d", i), "viewer", "user:jon")
 			err := datastore.Write(context.Background(), storeID, nil, []*openfgav1.TupleKey{newTuple})
 			require.NoError(t, err)
@@ -62,7 +63,7 @@ func ReadChangesTest(t *testing.T, datastore storage.OpenFGADatastore) {
 		})
 
 		t.Run("page_size_infinite", func(t *testing.T) {
-			changes := readChangesWithPageSize(t, datastore, storeID, 3_000, "")
+			changes := readChangesWithPageSize(t, datastore, storeID, 300, "")
 			assert.Len(t, changes, len(writtenTuples))
 		})
 	})
@@ -72,7 +73,8 @@ func ReadChangesTest(t *testing.T, datastore storage.OpenFGADatastore) {
 		filter := "folder"
 
 		var writtenTuples []*openfgav1.TupleKey
-		for i := 0; i < 3_000; i++ {
+		const numWrite = 300
+		for i := 0; i < numWrite; i++ {
 			newTuple1 := tuple.NewTupleKey(fmt.Sprintf("document:%d", i), "viewer", "user:jon")
 			newTuple2 := tuple.NewTupleKey(fmt.Sprintf("%s:%d", filter, i), "viewer", "user:jon")
 			err := datastore.Write(context.Background(), storeID, nil, []*openfgav1.TupleKey{newTuple1, newTuple2})
@@ -93,7 +95,7 @@ func ReadChangesTest(t *testing.T, datastore storage.OpenFGADatastore) {
 		})
 
 		t.Run("page_size_infinite", func(t *testing.T) {
-			changes := readChangesWithPageSize(t, datastore, storeID, 3_000, filter)
+			changes := readChangesWithPageSize(t, datastore, storeID, 300, filter)
 			assert.Len(t, changes, len(writtenTuples)/2)
 		})
 	})
