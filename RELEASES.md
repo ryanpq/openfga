@@ -3,19 +3,19 @@
 This document describes the versioning and release process of OpenFGA. This document will be considered a living document. Scheduled releases, supported timelines, and API stability guarantees will be updated here as they change.
 
 ## Release Cycle
-OpenFGA endeavors to follow a [4 | 6] release cycle with new releases in the openfga/openfga and openfga/helm-chats repositories including OpenFGA server binaries, container images published on Docker Hub, and updated Helm charts for each new version.  Off-cycle releases may also occur when required to address critical issues.
+OpenFGA endeavors to follow a [4 | 6] release cycle with new releases in the openfga/openfga and openfga/helm-chats repositories, including OpenFGA server binaries, container images published on DockerHub, and updated Helm charts for each new version.  Off-cycle releases may also occur when required to address critical issues.
 
 ## Versioning
-Releases of OpenFGA will be versioned using dotted triples. For the purposes of this document, we will refer to the respective components of this triple as \<major\>.\<minor\>.\<patch\>. When release candidates are published, they will include the suffix "-rc" followed by a release candidate number which identifies them as "pre-releases".
+Releases of OpenFGA will be versioned using dotted triples. For the purposes of this document, we will refer to the respective components of this triple as \<major\>.\<minor\>.\<patch\>. When release candidates are published, they will include the suffix "-RC" followed by a release candidate number identifying them as "pre-releases."
 
 ### Major and Minor Releases
-Changes in the major and minor version components of the triple indicate changes in the functionality or performance of OpenFGA which may include breaking changes requiring those integrating OpenFGA in their project to make changes in their use of OpenFGA when adopting the new version.  It is recommended to fully review the published release notes accompanying a new release before upgrading.
+Changes in the major and minor version components of the triple indicate changes in the functionality or performance of OpenFGA which may include breaking changes requiring those integrating OpenFGA in their project to make changes in their use of OpenFGA when adopting the new version.  It is recommended that the published release notes accompanying a new release be fully reviewed before upgrading.
 
 ### Patch Releases
-Releases which increment only the "patch" component of the version triple may introduce new functionality, performance enhancements, bugfixes, or preview features while remaining backwards compatible with the previous release.  
+Releases that increment only the "patch" component of the version triple may introduce new functionality, performance enhancements, bug fixes, or preview features while remaining backward compatible with the previous release.  
 
 ## Release History
-Release dates for all releases (not including release candidates)
+Release dates for all releases (not including release candidates).
 
 | Version | Release Date |
 |---------| ------------ |
@@ -79,14 +79,14 @@ Release dates for all releases (not including release candidates)
 
 ### Release Manager
 One of the OpenFGA maintainers is designated as the release manager.  The release manager is tasked with:
-- Communicating the release status with other maintainers 
-- Reviewing the included PRs and compiling a descriptive changelog detailing the changes included in the new release using language that is meaningful and easy to understand for humans and ensures that contributors to the release are acknowledged 
-- Discussing the level of testing that is needed and create a test plan if sensible including any areas where test coverage should be expanded
+- Communicating the release status with other maintainers.
+- Review the included PRs and compile a descriptive changelog detailing the changes included in the new release using language that is meaningful and easy to understand for humans and ensures that contributors to the release are acknowledged.
+- Discuss the level of testing that is needed and create a test plan, if sensible, including any areas where test coverage should be expanded.
 - Creating pull requests in the appropriate repositories and creating a new GitHub tag (ie. \<vX.Y.Z\>) indicating the version triple for the new release.
-- Verifying the release's publication to GitHub, DockerHub, and the release of the associated Helm chart.
-- Publishing release announcements or coordinating with other maintainers and community managers to publish release announcements to the openfga.dev website, the #openfga channel in the CNCF slack, and on other channels
+- Verify the release's publication to GitHub and DockerHub and the release of the associated Helm chart.
+- Publishing release announcements or coordinating with other maintainers and community managers to publish release announcements to the openfga.dev website, the #openfga channel in the CNCF slack, and on other channels.
 
-In addition to these duties, if the release is a security fix the release manager will coordinate with relevant maintainers and contributors to create and publish a CVE detailing the identified vulnerabilites and their resolution.
+In addition to these duties, if the release is a security fix, the release manager will coordinate with relevant maintainers and contributors to create and publish a CVE detailing the identified vulnerabilities and their resolution.
 
 ## Artifacts
 
@@ -115,7 +115,7 @@ In addition to these duties, if the release is a security fix the release manage
 - openfga_X.Y.Z_windows_arm64.tar.gz.sbom.json
 
 ### Container Images
-An updated container image is published to https://hub.docker.com/r/openfga/openfga for each new OpenFGA release
+An updated container image is published to https://hub.docker.com/r/openfga/openfga for each new OpenFGA release.
 
 ### Helm Charts
-Updated Helm Charts are published to https://openfga.github.io/helm-charts for each new OpenFGA release
+Updated Helm Charts are published to https://openfga.github.io/helm-charts for each new OpenFGA release.
